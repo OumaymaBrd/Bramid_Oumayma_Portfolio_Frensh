@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oumayma Bramid - Développeuse Full-Stack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body class="morphing-bg text-white">
+    <!-- Canvas 3D Background -->
+    <div id="canvas-container"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-morphism">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text font-mono">{'<OB/>'}</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link hover:text-purple-400 transition-colors">Accueil</a>
+                    <a href="#about" class="nav-link hover:text-purple-400 transition-colors">À propos</a>
+                    <a href="#skills" class="nav-link hover:text-purple-400 transition-colors">Compétences</a>
+                    <a href="#experience" class="nav-link hover:text-purple-400 transition-colors">Expérience</a>
+                    <a href="#projects" class="nav-link hover:text-purple-400 transition-colors">Projets</a>
+                    <a href="#certifications" class="nav-link hover:text-purple-400 transition-colors">Certifications</a>
+                    <a href="#contact" class="nav-link hover:text-purple-400 transition-colors">Contact</a>
+                </div>
+                <button id="menu-toggle" class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative">
+        <div class="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Profile Image -->
+            <div class="flex justify-center lg:justify-start order-1 lg:order-1">
+                <div class="relative floating-card">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-full blur-3xl opacity-30 neon-glow"></div>
+                    <div class="relative w-80 h-80 rounded-full overflow-hidden border-4 border-white/20 glass-morphism">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E22AQGqcU9seqy0tg/feedshare-shrink_1280/B4EZSI_xWDGYAo-/0/1737465209382?e=1757548800&v=beta&t=pGz9dYOcEeOGyYxAvBbq7p76v8-lXJOsVFZwuiwJS8g" alt="Oumayma Bramid" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-6 h-6 bg-green-400 rounded-full animate-ping"></div>
+                    <div class="absolute -bottom-4 -left-4 w-8 h-8 bg-blue-400 rounded-full animate-bounce"></div>
+                    <div class="absolute top-1/2 -left-8 w-4 h-4 bg-purple-400 rounded-full animate-pulse"></div>
+                </div>
+            </div>
+            
+            <!-- Hero Text -->
+            <div class="text-center lg:text-left order-2 lg:order-2">
+                <div class="mb-4">
+                    <span class="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-full text-sm font-mono border border-purple-500/30">
+                        💻 Disponible pour de nouveaux projets
+                    </span>
+                </div>
+                <br> <br>
+                <h1 class="text-6xl lg:text-8xl font-black mb-6 leading-tight">
+                    <span class="gradient-text">Oumayma</span><br>
+                    <span class="gradient-text">Bramid</span>
+                </h1>
+                
+                <div class="text-2xl lg:text-3xl text-gray-300 mb-4 h-16 font-mono">
+                    <span id="typing-text" class="typing-cursor"></span>
+                </div>
+                
+                <p class="text-lg text-gray-400 mb-8 leading-relaxed max-w-lg">
+    Développeuse Full-Stack alliant expertise en conception d’interfaces attrayantes et développement de solutions performantes côté serveur. 
+    Engagée dans la création de projets innovants, alliant performance, évolutivité et expériences utilisateur remarquables.
+</p>
+
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
+                    <button onclick="scrollToSection('contact')" class="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg neon-glow">
+                        <i class="fas fa-envelope mr-2"></i>
+                        Me Contacter
+                    </button>
+                    <button onclick="window.open('https://github.com/OumaymaBrd', '_blank')" class="px-8 py-4 border-2 border-purple-400 rounded-full font-semibold hover:bg-purple-400 transition-colors glass-morphism">
+                        <i class="fab fa-github mr-2"></i>
+                        GitHub
+                    </button>
+                    <!-- <button onclick="downloadCV()" class="px-8 py-4 border-2 border-green-400 rounded-full font-semibold hover:bg-green-400 transition-colors glass-morphism">
+                        <i class="fas fa-download mr-2"></i>
+                        CV PDF
+                    </button> -->
+                    <a href="https://www.linkedin.com/in/oumayma-bramid-475a0124b/" target="_blank" 
+   class="px-8 py-4 border-2 border-blue-500 rounded-full font-semibold hover:bg-blue-500 transition-colors glass-morphism">
+    <i class="fab fa-linkedin mr-2"></i>
+    Mon LinkedIn
+</a>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold gradient-text">5+</div>
+                        <div class="text-sm text-gray-400">Années</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold gradient-text">50+</div>
+                        <div class="text-sm text-gray-400">Projets</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold gradient-text">15+</div>
+                        <div class="text-sm text-gray-400">Technologies</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-purple-400"></i>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">À Propos de Moi</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="glass-morphism rounded-3xl p-8 floating-card">
+                    <h3 class="text-3xl font-bold mb-6 text-purple-300">Mon Parcours</h3>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Diplômée de <span class="text-purple-400 font-semibold">Youcode Safi (UM6P)</span> en 2024 
+                        et de la <span class="text-blue-400 font-semibold">Faculté des Sciences et Techniques de Settat</span>, 
+                        je suis une développeuse Full-Stack passionnée par les technologies modernes.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Mon expertise couvre le développement Frontend avec <span class="text-cyan-400 font-semibold">React.js</span>, 
+                        <span class="text-blue-400 font-semibold">Vue.js</span>, et Backend avec 
+                        <span class="text-green-400 font-semibold">Node.js</span>, 
+                        <span class="text-purple-400 font-semibold">PHP/Laravel</span>, et 
+                        <span class="text-blue-500 font-semibold">Go</span>.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        Spécialisée dans la création d'applications web modernes, performantes et scalables, 
+                        avec une forte expérience en bases de données (MySQL, PostgreSQL, MongoDB) et 
+                        en déploiement cloud (AWS).
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="glass-morphism rounded-2xl p-6 text-center floating-card neon-glow">
+                        <i class="fas fa-code text-4xl text-purple-400 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">50+</h4>
+                        <p class="text-gray-400">Projets Réalisés</p>
+                    </div>
+                    <div class="glass-morphism rounded-2xl p-6 text-center floating-card neon-glow">
+                        <i class="fas fa-graduation-cap text-4xl text-blue-400 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">4</h4>
+                        <p class="text-gray-400">Diplômes</p>
+                    </div>
+                    <div class="glass-morphism rounded-2xl p-6 text-center floating-card neon-glow">
+                        <i class="fas fa-certificate text-4xl text-green-400 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">3+</h4>
+                        <p class="text-gray-400">Certifications</p>
+                    </div>
+                    <div class="glass-morphism rounded-2xl p-6 text-center floating-card neon-glow">
+                        <i class="fas fa-briefcase text-4xl text-yellow-400 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">2</h4>
+                        <p class="text-gray-400">Stages Pro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">Compétences Techniques</h2>
+            
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <!-- Frontend -->
+                <div class="glass-morphism rounded-3xl p-8 floating-card">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center neon-glow">
+                            <i class="fas fa-laptop-code text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-blue-300">Frontend</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">HTML/CSS</span>
+                                <span class="text-blue-400">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">React.js</span>
+                                <span class="text-blue-400">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">Vue.js</span>
+                                <span class="text-blue-400">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">JavaScript</span>
+                                <span class="text-blue-400">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">Tailwind CSS</span>
+                                <span class="text-blue-400">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend -->
+                <div class="glass-morphism rounded-3xl p-8 floating-card">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center neon-glow">
+                            <i class="fas fa-server text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-purple-300">Backend</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">PHP/Laravel</span>
+                                <span class="text-purple-400">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">Node.js</span>
+                                <span class="text-purple-400">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">Go</span>
+                                <span class="text-purple-400">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">Express.js</span>
+                                <span class="text-purple-400">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">Spring Boot</span>
+                                <span class="text-purple-400">70%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Database & Tools -->
+                <div class="glass-morphism rounded-3xl p-8 floating-card">
+                    <div class="text-center mb-8">
+                        <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center neon-glow">
+                            <i class="fas fa-database text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-green-300">Base de Données & Outils</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">MySQL</span>
+                                <span class="text-green-400">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">PostgreSQL</span>
+                                <span class="text-green-400">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">MongoDB</span>
+                                <span class="text-green-400">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">Git/GitHub</span>
+                                <span class="text-green-400">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-2">
+                                <span class="font-mono">AWS</span>
+                                <span class="text-green-400">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2 skill-bar">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Skills -->
+            <div class="glass-morphism rounded-3xl p-8">
+                <h3 class="text-2xl font-bold text-center mb-8 gradient-text">Autres Compétences</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="flex flex-wrap gap-2">
+                        <h4 class="w-full text-lg font-semibold text-purple-300 mb-2">Frameworks CSS</h4>
+                        <span class="tech-badge px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30">Bootstrap</span>
+                        <span class="tech-badge px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm border border-cyan-500/30">Tailwind</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <h4 class="w-full text-lg font-semibold text-green-300 mb-2">Outils Design</h4>
+                        <span class="tech-badge px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm border border-pink-500/30">Figma</span>
+                        <span class="tech-badge px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm border border-orange-500/30">Postman</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <h4 class="w-full text-lg font-semibold text-yellow-300 mb-2">Systèmes</h4>
+                        <span class="tech-badge px-3 py-1 bg-gray-500/20 text-gray-300 rounded-full text-sm border border-gray-500/30">Linux</span>
+                        <span class="tech-badge px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-sm border border-blue-600/30">Windows Server</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <h4 class="w-full text-lg font-semibold text-red-300 mb-2">Méthodes</h4>
+                        <span class="tech-badge px-3 py-1 bg-red-500/20 text-red-300 rounded-full text-sm border border-red-500/30">UML</span>
+                        <span class="tech-badge px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm border border-purple-500/30">Agile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">Expérience Professionnelle</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="experience-timeline space-y-12">
+                    <!-- Stage Samed -->
+                    <div class="relative pl-16">
+                        <div class="timeline-dot" style="background: #f59e0b;"></div>
+                        <div class="glass-morphism rounded-3xl p-8 floating-card">
+                            <div class="flex flex-wrap justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-yellow-300">Stage - Développeur Full-Stack</h3>
+                                    <p class="text-xl text-blue-400 font-semibold">Samed, Agadir</p>
+                                </div>
+                                <span class="px-4 py-2 bg-yellow-500/20 text-yellow-300 rounded-full text-sm font-mono border border-yellow-500/30">
+                                    Mai 2025 - Juillet 2025
+                                </span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Développement d'applications web modernes et maintenance de systèmes existants 
+                                dans un environnement professionnel dynamique.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-badge px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">React.js</span>
+                                <span class="tech-badge px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Node.js</span>
+                                <span class="tech-badge px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Full-Stack</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Stage ARDI -->
+                    <div class="relative pl-16">
+                        <div class="timeline-dot" style="background: #10b981;"></div>
+                        <div class="glass-morphism rounded-3xl p-8 floating-card">
+                            <div class="flex flex-wrap justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-green-300">Stage - Développeur Full-Stack</h3>
+                                    <p class="text-xl text-blue-400 font-semibold">ARDI Consulting, Laâyoune</p>
+                                </div>
+                                <span class="px-4 py-2 bg-green-500/20 text-green-300 rounded-full text-sm font-mono border border-green-500/30">
+                                    Avril 2022 - Juillet 2022
+                                </span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Développement d'applications web et mobile, travail sur des projets de design graphique 
+                                et d'illustrations avec Adobe Photoshop.
+                            </p>
+                            <div class="mb-4">
+                                <h4 class="text-lg font-semibold text-green-300 mb-2">Compétences développées :</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                    <li>Adobe Photoshop et design graphique</li>
+                                    <li>Développement d'interfaces utilisateur</li>
+                                    <li>Gestion de projets créatifs</li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-badge px-3 py-1 bg-pink-500/20 text-pink-300 rounded-full text-sm">Adobe Photoshop</span>
+                                <span class="tech-badge px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">Design</span>
+                                <span class="tech-badge px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">Full-Stack</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Stage PFE -->
+                    <div class="relative pl-16">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-morphism rounded-3xl p-8 floating-card">
+                            <div class="flex flex-wrap justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-purple-300">Stage PFE - Développeur Full-Stack</h3>
+                                    <p class="text-xl text-blue-400 font-semibold">Big Master Sarl, Casablanca</p>
+                                </div>
+                                <span class="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-full text-sm font-mono border border-purple-500/30">
+                                    Avril 2024 - Juin 2024
+                                </span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Développement d'une plateforme web centralisée pour la gestion des formations et 
+                                des non-conformités chez les clients d'Intelcia.
+                            </p>
+                            <div class="mb-4">
+                                <h4 class="text-lg font-semibold text-green-300 mb-2">Réalisations :</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                    <li>Conception et développement d'une interface utilisateur moderne</li>
+                                    <li>Intégration d'APIs REST pour la gestion des données</li>
+                                    <li>Optimisation des performances et de l'expérience utilisateur</li>
+                                    <li>Tests et déploiement de l'application</li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-badge px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">React.js</span>
+                                <span class="tech-badge px-3 py-1 bg-green-500/20 text-green-300 rounded-full text-sm">Node.js</span>
+                                <span class="tech-badge px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">MySQL</span>
+                                <span class="tech-badge px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">Express.js</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stage Intelcia -->
+                    <div class="relative pl-16">
+                        <div class="timeline-dot" style="background: #06b6d4;"></div>
+                        <div class="glass-morphism rounded-3xl p-8 floating-card">
+                            <div class="flex flex-wrap justify-between items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-cyan-300">Stage - Développeur Web</h3>
+                                    <p class="text-xl text-blue-400 font-semibold">Intelcia, Casablanca</p>
+                                </div>
+                                <span class="px-4 py-2 bg-cyan-500/20 text-cyan-300 rounded-full text-sm font-mono border border-cyan-500/30">
+                                    Juillet 2024 - Septembre 2024
+                                </span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                Création d'une plateforme de formation pour accélérer la montée en compétences des agents 
+                                d'accueil, permettant aux agents d'accéder aux formations précédemment dispensées en entreprise.
+                            </p>
+                            <div class="mb-4">
+                                <h4 class="text-lg font-semibold text-green-300 mb-2">Technologies utilisées :</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                    <li>HTML5, CSS3, Tailwind CSS pour l'interface</li>
+                                    <li>JavaScript pour les interactions</li>
+                                    <li>PHP MVC pour la logique métier</li>
+                                    <li>jQuery et AJAX pour les requêtes asynchrones</li>
+                                </ul>
+                            </div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-badge px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">HTML5</span>
+                                <span class="tech-badge px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm">CSS3</span>
+                                <span class="tech-badge px-3 py-1 bg-yellow-500/20 text-yellow-300 rounded-full text-sm">JavaScript</span>
+                                <span class="tech-badge px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-sm">PHP</span>
+                                <span class="tech-badge px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full text-sm">Tailwind</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <!-- PROJECTS SECTION - NOUVELLE VERSION COMPLÈTE -->
+    <section id="projects" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="flex items-center justify-center mb-6">
+                    <i class="fas fa-code text-4xl text-purple-400 mr-4"></i>
+                    <h2 class="text-5xl font-bold gradient-text">Mes Projets Clés</h2>
+                </div>
+                <div class="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Découvrez mes réalisations techniques, des applications web modernes aux systèmes complexes, 
+                    chaque projet reflète ma passion pour l'innovation et l'excellence technique.
+                </p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto space-y-8">
+                
+                <!-- 1. Architecture Microservices Interactive -->
+                <div class="project-card">
+                    <div class="project-status status-live">
+                        <i class="fas fa-globe"></i>
+                        <span>EN LIGNE</span>
+                    </div>
+                    
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-2/3">
+                            <h3 class="text-3xl font-bold mb-4 text-white">Architecture Microservices Interactive</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                Développement d'une plateforme de visualisation interactive d'architecture microservices moderne. 
+                                Cette application éducative permet de comprendre les patterns de communication entre services, 
+                                les flux de données et les bonnes pratiques architecturales. Intègre des animations 3D et 
+                                des interactions en temps réel pour une expérience d'apprentissage immersive.
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold text-purple-300 mb-3">Fonctionnalités clés :</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>Visualisation interactive des architectures microservices</li>
+                                    <li>Animations 3D pour illustrer les flux de communication</li>
+                                    <li>Interface éducative avec explications détaillées</li>
+                                    <li>Responsive design adapté à tous les appareils</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-badge js">JavaScript</span>
+                                <span class="tech-badge html">HTML5</span>
+                                <span class="tech-badge css">CSS3</span>
+                                <span class="tech-badge">Three.js</span>
+                                <span class="tech-badge">Animations 3D</span>
+                                <span class="tech-badge">Interactive Design</span>
+                            </div>
+                            
+                            <div class="project-links">
+                                <a href="https://oumaymabrd.github.io/Architecture-Microservices-Interactive/" target="_blank" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Voir la Démo Live
+                                </a>
+                                <a href="https://github.com/OumaymaBrd/Architecture-Microservices-Interactive" target="_blank" class="project-link secondary">
+                                    <i class="fab fa-github"></i>
+                                    Code Source
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-1/3">
+                            <div class="bg-gradient-to-br from-green-500/20 to-teal-500/20 rounded-2xl p-8 text-center">
+                                <i class="fas fa-sitemap text-6xl text-green-400 mb-4"></i>
+                                <div class="text-sm text-gray-400 mb-2">Statut du Projet</div>
+                                <div class="text-green-400 font-semibold">Déployé & Fonctionnel</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Chat Temps Réel WhatsApp-Style -->
+                <div class="project-card">
+                    <div class="project-status status-github">
+                        <i class="fab fa-github"></i>
+                        <span>REPOSITORY</span>
+                    </div>
+                    
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-2/3">
+                            <h3 class="text-3xl font-bold mb-4 text-white">Chat Temps Réel WhatsApp-Style</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                Application de messagerie instantanée complète avec support des appels vocaux et vidéo, 
+                                similaire à WhatsApp. Implémente WebRTC pour les communications peer-to-peer, 
+                                Socket.io pour la messagerie en temps réel, et une interface utilisateur moderne et intuitive. 
+                                Gestion des groupes, partage de fichiers et notifications push.
+                            </p>
+                            
+                            <div class="language-stats mb-6">
+                                <div class="language-stat" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24;">
+                                    JavaScript 67.1%
+                                </div>
+                                <div class="language-stat" style="background: rgba(239, 68, 68, 0.2); color: #f87171;">
+                                    HTML 16.8%
+                                </div>
+                                <div class="language-stat" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">
+                                    CSS 16.1%
+                                </div>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold text-blue-300 mb-3">Fonctionnalités avancées :</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>Messagerie instantanée avec Socket.io</li>
+                                    <li>Appels vocaux et vidéo avec WebRTC</li>
+                                    <li>Interface utilisateur moderne et responsive</li>
+                                    <li>Gestion des groupes et conversations privées</li>
+                                    <li>Partage de fichiers et médias</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-badge js">JavaScript</span>
+                                <span class="tech-badge">WebRTC</span>
+                                <span class="tech-badge">Socket.io</span>
+                                <span class="tech-badge node">Node.js</span>
+                                <span class="tech-badge">Real-time</span>
+                                <span class="tech-badge">P2P Communication</span>
+                            </div>
+                            
+                            <div class="project-links">
+                                <a href="https://github.com/OumaymaBrd/Chat_temps_reel" target="_blank" class="project-link primary">
+                                    <i class="fab fa-github"></i>
+                                    Code Source GitHub
+                                </a>
+                                <!-- <a href="#" class="project-link secondary">
+                                    <i class="fas fa-play"></i>
+                                    Démo Interactive
+                                </a> -->
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-1/3">
+                            <div class="bg-gradient-to-br from-blue-500/20 to-indigo-500/20 rounded-2xl p-8 text-center">
+                                <i class="fas fa-comments text-6xl text-blue-400 mb-4"></i>
+                                <div class="text-sm text-gray-400 mb-2">Type de Projet</div>
+                                <div class="text-blue-400 font-semibold">Application Temps Réel</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Makete Animé Futuriste -->
+                <div class="project-card">
+                    <div class="project-status status-live">
+                        <i class="fas fa-globe"></i>
+                        <span>EN LIGNE</span>
+                    </div>
+                    
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-2/3">
+                            <h3 class="text-3xl font-bold mb-4 text-white">Makete Animé Futuriste</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                Projet créatif d'animations web avancées démontrant la maîtrise des technologies d'animation modernes. 
+                                Utilise GSAP pour des animations fluides, WebGL pour les effets 3D, et CSS3 pour des transitions 
+                                sophistiquées. Cette démonstration technique présente des interfaces dynamiques et interactives 
+                                avec des effets visuels impressionnants.
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold text-pink-300 mb-3">Technologies d'animation :</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>GSAP (GreenSock) pour animations complexes</li>
+                                    <li>CSS3 animations et transitions avancées</li>
+                                    <li>WebGL pour effets 3D et shaders</li>
+                                    <li>JavaScript pour interactions dynamiques</li>
+                                    <li>Optimisations de performance pour mobile</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-badge js">JavaScript</span>
+                                <span class="tech-badge">GSAP</span>
+                                <span class="tech-badge css">CSS3 Animations</span>
+                                <span class="tech-badge">WebGL</span>
+                                <span class="tech-badge">Interactive Design</span>
+                                <span class="tech-badge">Performance Optimization</span>
+                            </div>
+                            
+                            <div class="project-links">
+                                <a href="https://oumaymabrd.github.io/makete_anime/" target="_blank" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Voir la Démo Live
+                                </a>
+                                <a href="https://github.com/OumaymaBrd/makete_anime" target="_blank" class="project-link secondary">
+                                    <i class="fab fa-github"></i>
+                                    Code Source
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-1/3">
+                            <div class="bg-gradient-to-br from-pink-500/20 to-rose-500/20 rounded-2xl p-8 text-center">
+                                <i class="fas fa-magic text-6xl text-pink-400 mb-4"></i>
+                                <div class="text-sm text-gray-400 mb-2">Spécialité</div>
+                                <div class="text-pink-400 font-semibold">Animations Créatives</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Plateforme Communautaire YouCode -->
+                <div class="project-card">
+                    <div class="project-status status-development">
+                        <i class="fas fa-code"></i>
+                        <span>EN DÉVELOPPEMENT</span>
+                    </div>
+                    
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-2/3">
+                            <h3 class="text-3xl font-bold mb-4 text-white">Plateforme Communautaire YouCode</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                Système intégré de gestion des événements et ressources pédagogiques pour l'école YouCode. 
+                                Cette plateforme complète permet la gestion des utilisateurs, l'organisation d'événements, 
+                                le partage de ressources éducatives, et inclut un système de géolocalisation pour les événements. 
+                                Architecture moderne avec Laravel pour le backend et Vue.js pour une interface utilisateur réactive.
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold text-purple-300 mb-3">Modules principaux :</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>Gestion des utilisateurs et authentification</li>
+                                    <li>Système d'événements avec géolocalisation</li>
+                                    <li>Partage et gestion des ressources pédagogiques</li>
+                                    <li>Interface d'administration complète</li>
+                                    <li>API RESTful pour intégrations futures</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-badge laravel">Laravel</span>
+                                <span class="tech-badge php">PHP</span>
+                                <span class="tech-badge vue">Vue.js</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">RESTful API</span>
+                                <span class="tech-badge">Geolocation</span>
+                            </div>
+                            
+                            <div class="project-links">
+                                <a href="https://github.com/OumaymaBrd" target="_blank" class="project-link primary">
+                                    <i class="fab fa-github"></i>
+                                    Voir le Développement
+                                </a>
+                                <a href="#" class="project-link secondary">
+                                    <i class="fas fa-info-circle"></i>
+                                    Documentation en Mode  Privée
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-1/3">
+                            <div class="bg-gradient-to-br from-purple-500/20 to-indigo-500/20 rounded-2xl p-8 text-center">
+                                <i class="fas fa-rocket text-6xl text-purple-400 mb-4"></i>
+                                <div class="text-sm text-gray-400 mb-2">Statut</div>
+                                <div class="text-purple-400 font-semibold">En Développement Actif</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Collection Projets PHP & Laravel -->
+                <div class="project-card">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-2/3">
+                            <h3 class="text-3xl font-bold mb-4 text-white">Collection Projets PHP & Laravel</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                Ensemble complet de projets développés en PHP et Laravel, incluant des systèmes de gestion, 
+                                des APIs REST robustes, des applications e-commerce, et des plateformes web complètes. 
+                                Chaque projet démontre une expertise approfondie en développement backend, 
+                                architecture MVC, et bonnes pratiques de développement.
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold text-indigo-300 mb-3">Types de projets :</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>Systèmes de gestion d'entreprise (CRM, ERP)</li>
+                                    <li>Applications e-commerce avec paiement intégré</li>
+                                    <li>APIs REST pour applications mobiles</li>
+                                    <li>Plateformes de gestion de contenu (CMS)</li>
+                                    <li>Systèmes d'authentification et autorisation</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-badge php">PHP</span>
+                                <span class="tech-badge laravel">Laravel</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">MVC Architecture</span>
+                                <span class="tech-badge">RESTful APIs</span>
+                                <span class="tech-badge">Eloquent ORM</span>
+                            </div>
+                            
+                            <div class="project-links">
+                                <a href="https://github.com/OumaymaBrd?tab=repositories" target="_blank" class="project-link primary">
+                                    <i class="fab fa-github"></i>
+                                    Voir Tous les Repositories
+                                </a>
+                                <!-- <a href="#" class="project-link secondary">
+                                    <i class="fas fa-code"></i>
+                                    Exemples de Code
+                                </a> -->
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-1/3">
+                            <div class="bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-2xl p-8 text-center">
+                                <i class="fab fa-php text-6xl text-indigo-400 mb-4"></i>
+                                <div class="text-sm text-gray-400 mb-2">Expertise</div>
+                                <div class="text-indigo-400 font-semibold">Backend Development</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Portfolio Interactif 3D -->
+                <div class="project-card">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <div class="lg:w-2/3">
+                            <h3 class="text-3xl font-bold mb-4 text-white">Portfolio Interactif 3D</h3>
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                                Portfolio personnel moderne avec animations 3D immersives, effets visuels avancés et design responsive. 
+                                Utilise Three.js pour les scènes 3D, GSAP pour les animations fluides, et Tailwind CSS pour un design moderne. 
+                                Démonstration complète des compétences en développement frontend moderne et design d'expérience utilisateur.
+                            </p>
+                            
+                            <div class="mb-6">
+                                <h4 class="text-lg font-semibold text-yellow-300 mb-3">Caractéristiques techniques :</h4>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                                    <li>Scènes 3D interactives avec Three.js</li>
+                                    <li>Animations fluides et transitions GSAP</li>
+                                    <li>Design responsive et mobile-first</li>
+                                    <li>Optimisations de performance avancées</li>
+                                    <li>Interface utilisateur intuitive et moderne</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="tech-badge html">HTML5</span>
+                                <span class="tech-badge css">Tailwind CSS</span>
+                                <span class="tech-badge js">JavaScript</span>
+                                <span class="tech-badge">Three.js</span>
+                                <span class="tech-badge">GSAP</span>
+                                <span class="tech-badge">Responsive Design</span>
+                            </div>
+                            
+                            <div class="project-links">
+                                <a href="#" class="project-link primary">
+                                    <i class="fas fa-eye"></i>
+                                    Vous êtes ici !
+                                </a>
+                                <!-- <a href="https://github.com/OumaymaBrd" target="_blank" class="project-link secondary">
+                                    <i class="fab fa-github"></i>
+                                    Code Source
+                                </a> -->
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-1/3">
+                            <div class="bg-gradient-to-br from-yellow-500/20 to-orange-500/20 rounded-2xl p-8 text-center">
+                                <i class="fas fa-globe text-6xl text-yellow-400 mb-4"></i>
+                                <div class="text-sm text-gray-400 mb-2">Statut</div>
+                                <div class="text-yellow-400 font-semibold">Portfolio Actuel</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="text-center mt-16">
+                <div class="glass-morphism rounded-3xl p-8 max-w-4xl mx-auto">
+                    <h3 class="text-3xl font-bold mb-4 gradient-text">Intéressé par mes projets ?</h3>
+                    <p class="text-gray-300 text-lg mb-6">
+                        Chaque projet représente une opportunité d'apprentissage et d'innovation. 
+                        N'hésitez pas à explorer le code source et à me contacter pour discuter de collaborations.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center">
+                        <button onclick="window.open('https://github.com/OumaymaBrd', '_blank')" class="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full font-semibold hover:scale-105 transition-transform shadow-lg neon-glow">
+                            <i class="fab fa-github mr-2"></i>
+                            Voir tous mes projets
+                        </button>
+                        <button onclick="scrollToSection('contact')" class="px-8 py-4 border-2 border-purple-400 rounded-full font-semibold hover:bg-purple-400 transition-colors glass-morphism">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Discutons ensemble
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">Certifications & Diplômes</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Certifications -->
+                <div class="glass-morphism rounded-3xl p-8 floating-card">
+                    <h3 class="text-3xl font-bold mb-8 text-purple-300 text-center">
+                        <i class="fas fa-certificate mr-3"></i>Certifications
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-database text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">SQL (Advanced)</h4>
+                                <p class="text-gray-400 text-sm">HackerRank</p>
+                                <span class="text-green-400 text-xs">Déc. 2024</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
+                                <i class="fab fa-linux text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Linux Network Administrator</h4>
+                                <p class="text-gray-400 text-sm">Alison</p>
+                                <span class="text-blue-400 text-xs">Févr. 2023</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-tie text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Leadership & Communication</h4>
+                                <p class="text-gray-400 text-sm">LinkedIn - Astuces nano pour communiquer</p>
+                                <span class="text-purple-400 text-xs">Mai 2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-palette text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">GOX Creative Mastery</h4>
+                                <p class="text-gray-400 text-sm">Adobe Suite, Social Media Marketing, Video Editing</p>
+                                <span class="text-orange-400 text-xs">Janv. 2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-graduation-cap text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Continuous Learner</h4>
+                                <p class="text-gray-400 text-sm">Certiprof - Lifelong Learning 2025</p>
+                                <span class="text-indigo-400 text-xs">Avr. 2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
+                                <i class="fab fa-aws text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">AWS Cloud Introduction</h4>
+                                <p class="text-gray-400 text-sm">Amazon Web Services - Cloud 101</p>
+                                <span class="text-yellow-400 text-xs">Mai 2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-database text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Oracle Database 12</h4>
+                                <p class="text-gray-400 text-sm">LinkedIn - Architecture & PL/SQL</p>
+                                <span class="text-red-400 text-xs">Juil. 2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
+                                <i class="fab fa-python text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Python Data Visualization</h4>
+                                <p class="text-gray-400 text-sm">LinkedIn - Plotly, Seaborn, Matplotlib</p>
+                                <span class="text-green-400 text-xs">Juil. 2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-tasks text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Scrum Niveau Avancé</h4>
+                                <p class="text-gray-400 text-sm">Project Management Institute</p>
+                                <span class="text-blue-400 text-xs">Juil. 2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-gray-600 to-gray-800 rounded-full flex items-center justify-center">
+                                <i class="fab fa-linux text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Linux System Administration</h4>
+                                <p class="text-gray-400 text-sm">LinkedIn - Noyau Linux</p>
+                                <span class="text-gray-400 text-xs">Juin 2025</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
+                                <i class="fas fa-code text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Linux System Programming</h4>
+                                <p class="text-gray-400 text-sm">Udemy - Practical Approach</p>
+                                <span class="text-purple-400 text-xs">Mai 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Diplômes -->
+                <div class="glass-morphism rounded-3xl p-8 floating-card">
+                    <h3 class="text-3xl font-bold mb-8 text-green-300 text-center">
+                        <i class="fas fa-graduation-cap mr-3"></i>Diplômes
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-code text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Youcode Safi (UMGP)</h4>
+                                <p class="text-gray-400 text-sm">Full Stack Development Web</p>
+                                <span class="text-yellow-400 text-xs">2024 - En cours</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">FST Settat</h4>
+                                <p class="text-gray-400 text-sm">Licence en Génie Informatique</p>
+                                <span class="text-blue-400 text-xs">2023 - 2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-calculator text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">FST Settat</h4>
+                                <p class="text-gray-400 text-sm">DEUST en Mathématiques, Informatique et Physique</p>
+                                <span class="text-green-400 text-xs">2023 - 2022</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-atom text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">FST Errachidia</h4>
+                                <p class="text-gray-400 text-sm">DEUST en Mathématiques, Informatique et Physique</p>
+                                <span class="text-purple-400 text-xs">2020 - 2021</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                            <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-school text-white"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-white">Lycée Qualifiant Hassan II</h4>
+                                <p class="text-gray-400 text-sm">Baccalauréat - Filière Sciences Mathématiques A</p>
+                                <span class="text-red-400 text-xs">2019 - 2020</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="section-divider"></div>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 gradient-text">Contactez-Moi</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <div class="glass-morphism rounded-3xl p-8 floating-card">
+                        <h3 class="text-3xl font-bold mb-8 text-purple-300">Travaillons Ensemble</h3>
+                        <p class="text-gray-300 leading-relaxed mb-8">
+                            Prête à donner vie à vos idées les plus ambitieuses ! Que ce soit pour un projet web, 
+                            mobile ou une expérience 3D immersive, je suis là pour transformer votre vision en réalité.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center neon-glow">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">Email</p>
+                                    <p class="text-white font-semibold">oumaymabramid@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-gray-700 to-gray-900 rounded-full flex items-center justify-center neon-glow">
+                                    <i class="fab fa-github text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">GitHub</p>
+                                    <p class="text-white font-semibold">github.com/OumaymaBrd</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center neon-glow">
+                                    <i class="fab fa-linkedin text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">LinkedIn</p>
+                                    <p class="text-white font-semibold">linkedin.com/in/oumayma-bramid</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center neon-glow">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">Téléphone</p>
+                                    <p class="text-white font-semibold">+212 701237397</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center neon-glow">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-400">Localisation</p>
+                                    <p class="text-white font-semibold">Casablanca, Maroc</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-8 border-t border-white/10">
+                            <h4 class="text-xl font-semibold mb-4 text-center gradient-text">Disponibilité</h4>
+                            <div class="flex items-center justify-center space-x-2">
+                                <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                                <span class="text-green-400 font-semibold">Disponible pour de nouveaux projets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="glass-morphism rounded-3xl p-8 floating-card">
+                    <h3 class="text-2xl font-bold mb-6 text-center gradient-text">Envoyez-moi un message</h3>
+                    <form class="space-y-6" onsubmit="handleFormSubmit(event)" action="https://formspree.io/f/mvgqlqja">
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Nom complet</label>
+                            <input type="text" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-purple-400 focus:outline-none transition-colors text-white placeholder-gray-400 glass-morphism" placeholder="Votre nom complet">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Email</label>
+                            <input type="email" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-purple-400 focus:outline-none transition-colors text-white placeholder-gray-400 glass-morphism" placeholder="votre@email.com">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Sujet</label>
+                            <select class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-purple-400 focus:outline-none transition-colors text-white glass-morphism">
+                                <option value="" class="bg-gray-800">Choisir un sujet</option>
+                                <option value="projet-web" class="bg-gray-800">Projet Web</option>
+                                <option value="collaboration" class="bg-gray-800">Collaboration</option>
+                                <option value="freelance" class="bg-gray-800">Mission Freelance</option>
+                                <option value="autre" class="bg-gray-800">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-gray-300 mb-2 font-semibold">Message</label>
+                            <textarea rows="5" required class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:border-purple-400 focus:outline-none transition-colors text-white placeholder-gray-400 resize-none glass-morphism" placeholder="Décrivez votre projet ou votre demande..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-semibold hover:scale-105 transition-transform shadow-lg neon-glow">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Envoyer le Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-bold mb-8 gradient-text">Suivez-moi</h3>
+                <div class="flex justify-center space-x-6">
+                    <a href="mailto:oumaymabramid@gmail.com" class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform neon-glow">
+                        <i class="fas fa-envelope text-white text-xl"></i>
+                    </a>
+                    <a href="https://github.com/OumaymaBrd" target="_blank" class="w-16 h-16 bg-gradient-to-r from-gray-700 to-gray-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform neon-glow">
+                        <i class="fab fa-github text-white text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/oumayma-bramid-475a0124b/" target="_blank" class="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform neon-glow">
+                        <i class="fab fa-linkedin text-white text-xl"></i>
+                    </a>
+                   <a href="https://discord.com/users/1018922835407798312" target="_blank" class="w-16 h-16 bg-gradient-to-r from-indigo-600 to-purple-800 rounded-full flex items-center justify-center hover:scale-110 transition-transform neon-glow">
+    <i class="fab fa-discord text-white text-xl"></i>
+</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/10 relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold gradient-text font-mono">{'<OB/>'}</h3>
+                    <p class="text-gray-400 mt-2">Développeuse Full-Stack Passionnée</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-purple-300">Navigation</h4>
+                        <div class="space-y-2">
+                            <a href="#home" class="block text-gray-400 hover:text-purple-400 transition-colors">Accueil</a>
+                            <a href="#about" class="block text-gray-400 hover:text-purple-400 transition-colors">À propos</a>
+                            <a href="#skills" class="block text-gray-400 hover:text-purple-400 transition-colors">Compétences</a>
+                            <a href="#projects" class="block text-gray-400 hover:text-purple-400 transition-colors">Projets</a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-blue-300">Services</h4>
+                        <div class="space-y-2">
+                            <p class="text-gray-400">Développement Web</p>
+                            <p class="text-gray-400">Applications Mobile</p>
+                            <p class="text-gray-400">UI/UX Design</p>
+                            <p class="text-gray-400">Consulting Tech</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4 text-green-300">Technologies</h4>
+                        <div class="space-y-2">
+                            <p class="text-gray-400">React.js & Vue.js</p>
+                            <p class="text-gray-400">Node.js & PHP</p>
+                            <p class="text-gray-400">MySQL & MongoDB</p>
+                            <p class="text-gray-400">AWS & Docker</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-white/10 pt-8">
+                    <p class="text-gray-400 mb-2">© 2025 Oumayma Bramid. Tous droits réservés.</p>
+                    <p class="text-gray-500 text-sm">Créé avec ❤️ et beaucoup de café ☕</p>
+                  
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+     <script src="script.js"></script>
+ 
+</body>
+</html>
